@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
+const cors = require('cors');
 
 require('dotenv').config();
 const initDatabases = require('./src/db/DB');
@@ -9,6 +10,7 @@ app
   .use(bodyParser.json({
     limit: '50mb',
   }))
+  .use(cors())
   .use(bodyParser.urlencoded({
     limit: '50mb',
     extended: true,
