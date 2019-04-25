@@ -37,6 +37,7 @@ The app will run in port 3000.
 
 The REST service provide the following end-points:
   - [GET] /readEntries: Search in mongoDB collection all the entries
+  - [GET] /getEntryById/:entryId: Search in mongoDB collection the entry according to the ID
   - [POST] /addEntries: Creates a new entry
     > {"firstName": "name", "lastname": "lastname", "phone": "phone"}
   - [PUT] /editEntries: Search in mongoDB the entry id and update the fields

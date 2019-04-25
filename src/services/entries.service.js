@@ -2,6 +2,16 @@ const {
   collectionEntries,
 } = require('../models');
 
+exports.getEntryById = async (entryId) => {
+  try {
+    const entry = await collectionEntries.findById(entryId);
+    return entry;
+  } catch (err) {
+    console.log(err);
+    throw new Error('Error getting the entry by id');
+  }
+};
+
 exports.readEntries = async () => {
   try {
     const entries = await collectionEntries.find();

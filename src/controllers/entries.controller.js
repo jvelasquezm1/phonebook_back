@@ -3,6 +3,16 @@ const {
   entriesService,
 } = require('../services');
 
+exports.getEntryById = async (req, res) => {
+  const { entryId } = req.params;
+  try {
+    const entry = await entriesService.getEntryById(entryId);
+    res.json(entry);
+  } catch (err) {
+    res.json([]);
+  }
+};
+
 exports.readEntries = async (req, res) => {
   try {
     const entries = await entriesService.readEntries();
