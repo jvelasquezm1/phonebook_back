@@ -1,0 +1,17 @@
+version: "3.1"
+services:
+  phonebook_backend:
+    container_name: phonebook_backend
+    build: .
+    restart: always
+    network_mode: bridge
+    command: ["npm","start"]
+    ports:
+      - 3000:3000
+  phonebook_frontend:
+    container_name: phonebook_frontend
+    build: ../phonebook_front/
+    restart: always
+    network_mode: bridge
+    ports:
+      - 8080:8080
