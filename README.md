@@ -13,6 +13,9 @@ This application uses:
 * [Node.js] 
 * [Express]
 * [MongoDB]
+
+Deployed at: http://ec2-18-216-219-102.us-east-2.compute.amazonaws.com:8080/
+
 ***
 ### Installation
 
@@ -42,3 +45,23 @@ The REST service provide the following end-points:
     > {"firstName": "name", "lastname": "lastname", "phone": "phone"}
   - [PUT] /editEntries: Search in mongoDB the entry id and update the fields
     > {"id": "id", "firstName": "name", "lastname": "lastname", "phone": "phone"}
+
+### Docker
+
+If you want to deploy phonebook back in a Docker Container run:
+
+```sh
+docker build -t phonebook_back .
+docker run -p 3000:3000 phonebook_back
+```
+
+If you want to deploy the full architecture of the phonebook locate the root folder of the project phonebook_back and run:
+
+```sh
+cd phonebook_back
+docker-compose up
+```
+
+This will create 2 containers:
+- phonebook_back (exposed on port 3000 from localhost)
+- phonebook_front (exposed on port 8080 from localhost)
